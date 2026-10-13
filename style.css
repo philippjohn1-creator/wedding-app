@@ -1,0 +1,205 @@
+
+:root {
+  --gold: #b8962e;
+  --gold-hell: #f3ead0;
+  --schwarz: #111111;
+  --grau: #6b6b6b;
+  --rand: #e6e0d0;
+  --bg: #faf8f3;
+  --rot: #b3261e;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--schwarz);
+}
+
+/* Willkommen */
+.willkommen {
+  min-height: 100vh;
+  background: var(--schwarz);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(20px + env(safe-area-inset-top)) 20px calc(20px + env(safe-area-inset-bottom));
+}
+.willkommen-box {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  width: 100%;
+  max-width: 420px;
+  border: 2px solid var(--gold);
+}
+.willkommen-box h1 { margin: 0 0 6px; text-align: center; color: var(--gold); letter-spacing: .1em; }
+.willkommen-box p { text-align: center; color: var(--grau); margin: 0 0 16px; }
+
+/* Kopf */
+.kopf {
+  background: var(--schwarz);
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  padding-top: env(safe-area-inset-top);
+  border-bottom: 2px solid var(--gold);
+}
+.kopf h1 {
+  margin: 0;
+  padding: 12px 16px 6px;
+  font-size: 20px;
+  color: var(--gold);
+  text-align: center;
+  letter-spacing: .06em;
+  font-weight: 600;
+}
+nav {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 6px 10px 10px;
+  -webkit-overflow-scrolling: touch;
+}
+nav button {
+  flex: 0 0 auto;
+  background: transparent;
+  color: #ddd;
+  border: 1px solid #444;
+  border-radius: 20px;
+  padding: 8px 14px;
+  font-size: 14px;
+  width: auto;
+}
+nav button.aktiv { background: var(--gold); color: #111; border-color: var(--gold); font-weight: 600; }
+
+main { max-width: 600px; margin: 0 auto; padding: 14px 14px calc(30px + env(safe-area-inset-bottom)); }
+h2 { font-size: 18px; margin: 0 0 10px; }
+
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 14px;
+  border: 1px solid var(--rand);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+.zentriert { text-align: center; }
+.gross { font-size: 64px; font-weight: 700; color: var(--gold); line-height: 1.1; }
+.klein { color: var(--grau); font-size: 14px; margin: 4px 0; }
+
+/* Formulare */
+form { display: flex; flex-direction: column; gap: 10px; }
+label { display: flex; flex-direction: column; gap: 4px; font-size: 14px; color: var(--grau); }
+input, select, textarea {
+  font-size: 16px;
+  font-family: inherit;
+  padding: 11px;
+  border: 1px solid #d6d0c0;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--schwarz);
+  width: 100%;
+}
+label.haken { flex-direction: row; align-items: center; gap: 10px; color: var(--schwarz); font-size: 16px; }
+label.haken input { width: 22px; height: 22px; }
+
+button {
+  font-size: 16px;
+  font-family: inherit;
+  padding: 12px;
+  border: none;
+  border-radius: 10px;
+  background: var(--schwarz);
+  color: var(--gold);
+  font-weight: 600;
+  width: 100%;
+}
+button:active { opacity: .7; }
+button.zweit { background: #fff; color: var(--schwarz); border: 1px solid #bbb; margin-top: 10px; }
+button.gefahr { background: var(--rot); color: #fff; }
+.ics-knopf { margin-top: 10px; background: var(--gold); color: #111; }
+
+/* Listen */
+ul { list-style: none; padding: 0; margin: 0; }
+ul.plain li {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--rand);
+}
+ul.plain li:last-child { border-bottom: none; }
+ul.plain li.unter { font-weight: 700; color: var(--gold); border-bottom: 2px solid var(--gold); margin-top: 8px; }
+ul.plain li.rot span:last-child { color: var(--rot); font-weight: 600; }
+ul.plain li span:last-child { font-weight: 600; text-align: right; }
+
+ul.liste { margin-top: 10px; }
+.zeile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--rand);
+  background: #fff;
+}
+.zeile:last-child { border-bottom: none; }
+.zeile input[type="checkbox"] { width: 24px; height: 24px; flex: 0 0 auto; }
+.zeile .inhalt { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 2px; word-break: break-word; }
+.zeile.fertig .inhalt strong { text-decoration: line-through; color: var(--grau); }
+.zeile .knoepfe { display: flex; gap: 6px; flex: 0 0 auto; }
+.zeile .knoepfe button {
+  width: 40px;
+  padding: 8px 0;
+  background: #f1ede1;
+  color: var(--schwarz);
+  font-size: 16px;
+}
+.zeile .knoepfe button.loesch { color: var(--rot); }
+.pre { white-space: pre-wrap; color: var(--grau); font-size: 14px; }
+
+.tag {
+  display: inline-block;
+  font-size: 12px;
+  padding: 2px 8px;
+  border-radius: 10px;
+  background: var(--gold-hell);
+  color: #7a5f12;
+  margin-right: 4px;
+}
+.tag.rot { background: #fbe4e2; color: var(--rot); }
+.tag.gruen { background: #e0f2e3; color: #1e6b2e; }
+
+.balken { background: #eee8d6; border-radius: 8px; height: 12px; overflow: hidden; }
+#check-fortschritt { background: var(--gold); height: 100%; width: 0%; transition: width .3s; }
+
+/* Budget */
+.bud-zeile { border-bottom: 1px solid var(--rand); padding: 10px 0; }
+.bud-kopf { display: flex; gap: 8px; margin-bottom: 8px; }
+.bud-kopf input { font-weight: 600; }
+.bud-kopf button { width: 44px; background: #f1ede1; color: var(--rot); }
+.bud-felder { display: flex; gap: 8px; }
+.bud-felder label { flex: 1; }
+
+/* Ablauf: Drag & Drop */
+#ab-liste li { touch-action: auto; }
+.griff {
+  font-size: 24px;
+  padding: 6px 10px;
+  color: var(--gold);
+  touch-action: none;
+  user-select: none;
+  -webkit-user-select: none;
+  cursor: grab;
+}
+.zeit { font-weight: 700; color: var(--gold); min-width: 52px; }
+#ab-liste li.zieht { background: var(--gold-hell); box-shadow: 0 4px 12px rgba(0,0,0,.2); }
+
+.willkommen-box p.fehler { color: var(--rot); margin: 0; min-height: 0; font-size: 14px; }
+
+.wahl { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+.wahl p.klein { margin: 0 0 12px; }
+.willkommen-box button + button.zweit { margin-top: 0; }
